@@ -1,0 +1,89 @@
+---
+title: "GAE10: PCA & NMDS"
+author: "Your Name Here"
+format: 
+  html:
+    theme: custom.scss
+    embed-resources: true
+    code-tools: true
+
+csl: ecology.csl
+editor: visual
+bibliography: references.bib
+---
+
+```{r }
+#| label: setup
+#| echo: false
+#| message: false # to suppress "info messages"
+
+knitr::opts_chunk$set(
+  echo = FALSE
+  )
+
+library(latex2exp)
+library(patchwork)
+library(kableExtra)
+library(tidyverse)
+
+options(scipen = 10)
+
+options(knitr.kable.NA = "")
+
+```
+
+## Scenario 1: Ecology, Behavior, and Coraciiformes Color
+
+Coraciiform species (@fig-Kingfishers) have diverse plumage coloration including pigmentary and structural colors, live in a range of different environments, show variable levels of territoriality, variability in the presence or absence of cooperative breeding (but with near uniform social monogamy), and different types of hunting strategy. @babarovicEffectsEcologyBehavior2023 measured plumage coloration from digital images of museum specimens and quantified several proxies for factors that could play a key role in the evolution of coloration including sex, body size, hunting strategy, habitat light environment, territoriality, and social mating system. They were interested in exploring how different possible biotic and abiotic factors may have affected the evolution of Coraciiform coloration.
+
+### Methods:
+
+The researchers used study skins of 117 species of Coraciiformes (families Meropidae, Brachypteraciidae, Coraciidae, Todidae, Momotidae, Alcedinidae) from the bird collections of the Natural History Museum at Tring, UK. Calibrated digital images of study skins were taken using methods described in @cooneySexualSelectionPredicts2019 and were used to quantify both chromatic (hue and saturation) and achromatic (brightness) components of color for each of several body regions (patches). The selected body regions were: crown, nape, mantle, rump, tail, wing coverts, wing primaries and secondaries, throat, breast, belly, and tail underside. They then used mapping functions to convert red-green-blue values for each patch on each specimen into values appropriate for the visual abilities of this order. Then they calculated average patch values (separately for each sex) as a species-level measure for each body patch. They then used principle components analysis to reduce the dimensionality of the color data across body patches and species and found that the first principle component accounted for \>80% of the variation in color [@babarovicEffectsEcologyBehavior2023]. @babarovicEffectsEcologyBehavior2023 then collated information on: body size; light-level associated habitat preference; hunting strategies; territoriality; and cooperative breeding from available literature.
+
+```{r}
+#| label: fig-Kingfishers
+#| fig-cap: "A collage showing some of the plumage color diversity in the Coraciiformes. (a) Forest kingfisher (*Todiramphus macleayii*), Alcedinidae; (b) Common kingfisher (*Alcedo atthis*), Alcedinidae; (c) White-fronted bee-eater (*Merops bullockoides*), Meropidae; (d) Red-bearded bee-eater (*Nyctyornis amictus*), Meropidae; (e) European roller (*Coracias garrulus*), Coraciidae; (f) Lilac-breasted roller (*Coracias caudatus*), Coraciidae; (g) Broad-billed today (*Todus subulatus*), Todidae; (h) Narrow-billed today (*Todus angustirostris*), Todidae. All photos © Daniel J. Field, University of Cambridge."
+#| out-width: "80%"
+
+
+knitr::include_graphics("Kingfishers.png")
+
+```
+
+#### Statistical Methods:
+
+```{r}
+#| label: Scenario1DataImport
+
+# I have provided the PCA1 scores for the patches (columns 2-12) as an index of
+# the complex color data for each species (rows) as well as the body size (a
+# quantitative supplementary variable, column 13) and ecological behavioral
+# classifications (qualitative supplemental variables, columns 14-17) in
+# colors.csv. Please explore any grouping and/or patterning among the species
+# and their ecological/behavioral traits.
+
+```
+
+### References:
+
+------------------------------------------------------------------------
+
+## Scenario 2: Deer and Forest Plant Communities
+
+White-tailed deer (*Odocoileus virginianus*) are often considered to be keystone species in forest communities. @sabo2017 conducted surveys of the vegetation and environmental conditions of deer exclusion plots and adjacent plots outside the exclusion areas as part of a larger study to examine the indirect effects of their presence on the plant assemblages.
+
+### Methods:
+
+In Summer 2011, the researchers visited 17 deer exclosures in upland forests of northern Wisconsin and Michigan's Upper Peninsula (UP) that were constructed for various previous studies between 1991 and 2002. In each stand, they sampled vegetation and measured key environmental variables inside the fences and in paired ‘deer-access’ plots outside the fences. The latter were in close proximity to the exclosures (always within 100 m), and were placed in locations with similar management histories and overstory structure and composition. Within each exclosure and control area, multiple quadrats were sampled and they recorded the incidence of all herbaceous, shrub, and tree seedling species.
+
+#### Statistical Methods:
+
+```{r}
+#| label: Scenario2DataImport
+
+# I have provided data representing the proportion of quadrats each species
+# (columns) was found in as a an index of abundance within each deer exclosure
+# (rows) in Sabo_etal_data.csv.
+```
+
+### References:
