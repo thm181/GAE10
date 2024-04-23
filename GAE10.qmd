@@ -84,6 +84,10 @@ In Summer 2011, the researchers visited 17 deer exclosures in upland forests of 
 # I have provided data representing the proportion of quadrats each species
 # (columns) was found in as a an index of abundance within each deer exclosure
 # (rows) in Sabo_etal_data.csv.
+
+# Use NMDS to explore the differences in plant community inside and outside the
+# deer exclosures, then test for differences in the plant communities between
+# the deer exclosures and the adjacent forests.
 ```
 
 ### References:
